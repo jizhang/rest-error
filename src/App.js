@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import request from './request'
 
 class App extends Component {
   state = {
@@ -8,8 +9,7 @@ class App extends Component {
   }
 
   ping = () => {
-    fetch('/ping')
-      .then(response => response.json())
+    request('/ping')
       .then(payload => {
         this.setState({
           message: payload,
@@ -34,4 +34,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
