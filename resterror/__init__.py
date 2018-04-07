@@ -29,6 +29,15 @@ def person_post():
         raise BadRequest('username cannot be empty', 40001, { 'ext': 1 })
     return jsonify(last_insert_id=1)
 
+
 @app.route('/ping')
 def ping():
     return jsonify('pong')
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    form = request.get_json()
+    if form['username'] == 'admin' and form['password'] == '888888':
+        return jsonify(1)
+    raise BadRequest('invalid username or password', 40001)
