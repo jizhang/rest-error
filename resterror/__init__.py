@@ -28,3 +28,7 @@ def person_post():
     if not request.form.get('username'):
         raise BadRequest('username cannot be empty', 40001, { 'ext': 1 })
     return jsonify(last_insert_id=1)
+
+@app.route('/ping')
+def ping():
+    return jsonify('pong')
